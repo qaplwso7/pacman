@@ -14,7 +14,18 @@ FetchContent_Declare(SFML
         SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES}
+        source/user_interface/core/IDrawable.h
+        source/user_interface/core/ISelectCommand.h
+        source/user_interface/elements/Button.h
+        source/utils/graphics/MyFont.h
+        source/user_interface/elements/Menu.h
+        source/user_interface/commands/ExitCommand.hpp
+        source/user_interface/commands/GameCommand.h
+        source/user_interface/ChangeStateCommand.h
+        source/utils/config/GameConfig.hpp
+        source/user_interface/elements/Menu.cpp
+        source/user_interface/elements/Button.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window sfml-graphics)
 

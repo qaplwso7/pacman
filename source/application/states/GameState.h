@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "../core/IState.h"
-#include "../../IWindowKeeper.h"
+#include "../IWindowKeeper.h"
 
 class IStateManager;
 

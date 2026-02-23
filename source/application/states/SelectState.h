@@ -3,7 +3,8 @@
 #include <iostream>
 
 #include "../core/IState.h"
-#include "../../IWindowKeeper.h"
+#include "../IWindowKeeper.h"
+#include "../../user_interface/elements/Menu.h"
 
 class IStateManager;
 
@@ -20,4 +21,8 @@ public:
     void event_handling() override;
     void update() override;
     void render() override;
+
+private:
+    IStateManager& m_state_manager;
+    std::unique_ptr<Menu> m_menu;
 };
