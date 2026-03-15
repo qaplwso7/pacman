@@ -8,15 +8,15 @@ namespace config {
     const sf::Vector2f BUTTON_SIZE = { 250, 100 };
     const size_t BUTTON_FONT_SIZE = static_cast<size_t>(BUTTON_SIZE.y / 1.5f);
     const float BUTTON_FRAME_THICKNESS = 2.0f;
-    const char FONT_FILE[] = "Calibri-Light.ttf";
+    const char FONT_FILE[] = "assets/fonts/Creepster.ttf";
     const char SELECT_LEVEL_TITLE[] = "Select Level";
-    const sf::VideoMode SELECT_LEVEL_VIDEO_MODE{ 400, 600 };
+    const sf::VideoMode SELECT_LEVEL_VIDEO_MODE ({ 400, 600 });
     const char BUTTON_TEXT_EASY[] = "Easy";
     const char BUTTON_TEXT_MEDIUM[] = "Medium";
     const char BUTTON_TEXT_HARD[] = "Hard";
     const char BUTTON_TEXT_EXIT[] = "Exit";
     // Игра:
-    const sf::VideoMode GAME_VIDEO_MODE{ 1080, 720 };
+    const sf::VideoMode GAME_VIDEO_MODE({ 1080, 720 });
     const char EASY_GAME_TITLE[] = "Level: Easy";
     const char MEDIUM_GAME_TITLE[] = "Level: Medium";
     const char HARD_GAME_TITLE[] = "Level: Hard";
@@ -50,4 +50,5 @@ namespace config {
     const float BUTTON_SPACING_MULTIPLIER = 1.2f;  // коэффициент расстояния между кнопками
     const float BUTTON_VERTICAL_SPACING = BUTTON_SIZE.y * BUTTON_SPACING_MULTIPLIER;  // расстояние между кнопками
     const float BUTTON_FIRST_Y_OFFSET = 100.0f;  // отступ первой кнопки сверху
+    const size_t BUTTON_COUNT = 4;
 }

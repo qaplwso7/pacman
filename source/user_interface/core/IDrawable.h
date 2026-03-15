@@ -4,6 +4,6 @@
 
 class IDrawable {
 public:
-    virtual void draw_into(sf::RenderWindow& window) const = 0;
+    virtual void draw_into(sf::RenderWindow& window) = 0;
     virtual ~IDrawable() = default;
 };

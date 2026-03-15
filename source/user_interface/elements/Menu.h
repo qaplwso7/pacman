@@ -2,6 +2,7 @@
 
 #include "../core/IDrawable.h"
 #include "Button.h"
+#include "../../utils/config/GameConfig.h"
 
 #include <SFML/Graphics.hpp>
 #include <string>
@@ -11,10 +12,11 @@ class IStateManager;
 
 class Menu : IDrawable {
 public:
-    Menu(const IStateManager& state_manager);
+    explicit Menu(IStateManager& state_manager);
+    void process_mouse(sf::Vector2f position, bool is_pressed);
+    void draw_into(sf::RenderWindow &window) override;
 
-    void process_mouse(sf::Vector2f position, const bool& is_pressed);
-    void draw_into(sf::RenderWindow &window) const override;
 private:
-    std::array<Button, 4> m_buttons;
+    std::array<Button, config::BUTTON_COUNT> m_buttons;
+    IStateManager& m_state_manager;
 };
