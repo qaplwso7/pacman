@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
 
+#include "../config/GameConfig.h"
+
 class MyFont {
 public:
     MyFont(const MyFont&) = delete;
@@ -14,7 +16,7 @@ public:
 
 protected:
     MyFont() {
-        if(!m_font.openFromFile("assets/fonts/Creepster.ttf"))
+        if(!m_font.openFromFile(config::FONT_FILE))
             throw std::runtime_error("Failed to load font!\n");
     }
 

@@ -15,15 +15,20 @@ bool SelectState::do_step() {
 }
 
 void SelectState::event_handling() {
-    while (const std::optional event = m_window.pollEvent()) {
-        if (event->is<sf::Event::Closed>()) {
+    while(const std::optional event = m_window.pollEvent()) {
+        if(event->is<sf::Event::Closed>()) {
             m_window.close();
         }
-        else if (auto* mouseMoved = event->getIf<sf::Event::MouseMoved>()) {
+        if(auto ptr_event = event->getIf<sf::Event::Resized>()) {
+            sf::View view = m_window.getView();
+            view.setSize(sf::Vector2f(ptr_event->size));
+            m_window.setView(view);
+        }
+        else if(auto* mouseMoved = event->getIf<sf::Event::MouseMoved>()) {
             sf::Vector2i mousePos(mouseMoved->position.x, mouseMoved->position.y);
             m_menu->process_mouse(static_cast<sf::Vector2f>(mousePos), false);
         }
-        else if (auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+        else if(auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>()) {
             if (mousePressed->button == sf::Mouse::Button::Left) {
                 sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
                 m_menu->process_mouse(static_cast<sf::Vector2f>(mousePos), true);

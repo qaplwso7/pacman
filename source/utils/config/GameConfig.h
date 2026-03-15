@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <string>
 
 namespace config {
     // Общее:
@@ -8,7 +9,7 @@ namespace config {
     const sf::Vector2f BUTTON_SIZE = { 250, 100 };
     const size_t BUTTON_FONT_SIZE = static_cast<size_t>(BUTTON_SIZE.y / 1.5f);
     const float BUTTON_FRAME_THICKNESS = 2.0f;
-    const char FONT_FILE[] = "assets/fonts/Creepster.ttf";
+    const std::string FONT_FILE = "assets/text.otf";
     const char SELECT_LEVEL_TITLE[] = "Select Level";
     const sf::VideoMode SELECT_LEVEL_VIDEO_MODE ({ 400, 600 });
     const char BUTTON_TEXT_EASY[] = "Easy";

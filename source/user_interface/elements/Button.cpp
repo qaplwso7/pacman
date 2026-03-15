@@ -14,7 +14,7 @@ void Button::set(const sf::Vector2f& position, const sf::Vector2f& button_size,
     m_rectangle.setOutlineColor(config::BUTTON_COLOR_FRAME);
 
     m_text.setFont(MyFont::Instance());
-    m_text.setCharacterSize(font_size);
+    m_text.setCharacterSize(config::BUTTON_FONT_SIZE / 2.5f);
     m_text.setFillColor(config::BUTTON_COLOR_TEXT);
     m_text.setString(text);
     const sf::FloatRect text_bounds = m_text.getGlobalBounds();
