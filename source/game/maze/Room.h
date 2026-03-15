@@ -11,15 +11,14 @@ public:
     enum Direction { INVALID = -1, LEFT, RIGHT, UP, DOWN };
 
     explicit Room(float size);
-    ~Room();
 
     float get_size() const noexcept;
     void set_position(const sf::Vector2f& position);
     sf::Vector2f get_position() const noexcept;
 
+    Direction get_direction(IRoomSide* ptr_side) const noexcept;
     void set_side(Direction side, std::unique_ptr<IRoomSide>&& ptr_side);
     IRoomSide* get_side(Direction side) const noexcept;
-    Direction get_direction(IRoomSide* ptr_side) const noexcept;
 
     void draw_into(sf::RenderWindow& window) override;
 
