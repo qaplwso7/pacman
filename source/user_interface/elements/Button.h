@@ -4,6 +4,7 @@
 
 #include "../core/IDrawable.h"
 #include "../core/ISelectCommand.h"
+#include "../../utils/graphics/MyFont.h"
 
 #include <string>
 #include <SFML/Graphics.hpp>
@@ -11,6 +12,7 @@
 
 class Button : public IDrawable {
 public:
+    Button() : m_text(MyFont::Instance()) {};
     void set(const sf::Vector2f& position, const sf::Vector2f& button_size,
         const std::string& text, const size_t& font_size,
         std::unique_ptr<ISelectCommand> ptr_command);

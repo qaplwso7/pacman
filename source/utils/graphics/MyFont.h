@@ -14,7 +14,7 @@ public:
 
 protected:
     MyFont() {
-        if(!m_font.loadFromFile("assets/fonts/Creepster.ttf"))
+        if(!m_font.openFromFile("assets/fonts/Creepster.ttf"))
             throw std::runtime_error("Failed to load font!\n");
     }
 

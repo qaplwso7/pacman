@@ -1,5 +1,6 @@
 #include "Wall.h"
 #include "../../../utils/config/GameConfig.h"
+#include "../Room.h"
 
 void Wall::prepare_for_drawing() {
     const sf::Vector2 pos = m_room.get_position();

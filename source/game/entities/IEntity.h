@@ -1,17 +1,17 @@
 #pragma once
 
 #include "../IPreparable.h"
-class Room;
+#include "../maze/Room.h"
 
-class IEntity : IPreparable {
+class IEntity : public IPreparable {
 public:
-    void set_location(std::shared_ptr<Room> ptr_room) {
-        m_ptr_room = std::move(ptr_room);
+    void set_location(Room* ptr_room) {
+        m_ptr_room = ptr_room;
         prepare_for_drawing();
     }
-    std::shared_ptr<Room> get_location() const { return m_ptr_room; }
+    Room* get_location() const { return m_ptr_room; }
 
 protected:
-    std::shared_ptr<Room> m_ptr_room;
+    Room* m_ptr_room = nullptr;
 };
 

@@ -6,6 +6,7 @@ void Room::set_side(Direction side, std::unique_ptr<IRoomSide>&& ptr_side) {
     if(side == INVALID) throw std::invalid_argument("Invalid side direction!");
 
     m_sides[side] = std::move(ptr_side);
+    m_sides[side]->prepare_for_drawing();
 }
 
 Room::Direction Room::get_direction(IRoomSide *ptr_side) const noexcept {

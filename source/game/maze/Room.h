@@ -9,6 +9,14 @@ class Room : public IDrawable {
 public:
     enum Direction { INVALID = -1, LEFT, RIGHT, UP, DOWN };
 
+    // Запрещаем копирование (можно разрешить позже, если нужно)
+    Room(const Room&) = delete;
+    Room& operator=(const Room&) = delete;
+
+    // Разрешаем перемещение (опционально)
+    Room(Room&&) = default;
+    Room& operator=(Room&&) = default;
+
     Room(float size) : m_rectangle({size, size}) { m_rectangle.setOrigin({size / 2, size / 2}); };
 
     float get_size() const noexcept{ return m_rectangle.getSize().x; };
