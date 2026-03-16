@@ -1,7 +1,7 @@
 #include "GameState.h"
 
 #include <iostream>
-#include "../../utils/config/GameConfig.h"
+#include "../utils/config/GameConfig.h"
 
 GameState::GameState(IStateManager& state_manager, const sf::VideoMode& video_mode, const std::string& window_title)
     : IState(state_manager), IWindowKeeper(video_mode, window_title),

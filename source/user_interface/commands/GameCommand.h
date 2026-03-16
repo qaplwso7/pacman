@@ -1,6 +1,6 @@
 #pragma once
 #include "../ChangeStateCommand.h"
-#include "../../application/states/GameState.h"
+#include "../../game/GameState.h"
 
 class GameCommand : ChangeStateCommand {
 public:

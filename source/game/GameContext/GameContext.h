@@ -3,9 +3,9 @@
 #include <vector>
 #include <memory>
 
-#include "entities/IDynamicEntity.h"
-#include "entities/IStaticEntity.h"
-#include "entities/Pacman.h"
+#include "../Entities/IDynamicEntity.h"
+#include "../Entities/IStaticEntity.h"
+#include "../Entities/Pacman.h"
 
 class GameContext {
 public:

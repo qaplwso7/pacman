@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../../game/ContextManager.h"
-#include "../../game/GameContext.h"
-#include "../../game/maze/Maze.h"
-#include "../core/IState.h"
-#include "../IWindowKeeper.h"
+#include "GameContext/ContextManager.h"
+#include "GameContext/GameContext.h"
+#include "maze/Maze.h"
+#include "../application/core/IState.h"
+#include "../application/IWindowKeeper.h"
 
 class IStateManager;
 class ContextManager;

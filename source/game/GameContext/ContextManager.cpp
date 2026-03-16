@@ -8,7 +8,7 @@ void ContextManager::reset(std::unique_ptr<GameContext> context) {
 }
 
 GameContext& ContextManager::get_current_context() {
-    return *m_contexts.top();
+    return* m_contexts.top();
 }
 
 void ContextManager::save_current_context() {

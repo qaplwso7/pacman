@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../IRoomSide.h"
-#include "../../entities/IEntity.h"
+#include "../../Entities/IEntity.h"
 
 class IEntity;
 class Room;
