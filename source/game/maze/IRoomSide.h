@@ -2,7 +2,6 @@
 
 #include "../IPreparable.h"
 
-class Room;
 class IEntity;
 
 class IRoomSide : public IPreparable {

@@ -2,9 +2,13 @@
 #include "../../../utils/config/GameConfig.h"
 #include "../Room.h"
 
+Wall::Wall(std::shared_ptr<Room> room) : m_room(room) {}
+
+void Wall::enter(IEntity *entity) {}
+
 void Wall::prepare_for_drawing() {
-    const sf::Vector2 pos = m_room.get_position();
-    const float size = m_room.get_size();
+    const sf::Vector2 pos = m_room.lock()->get_position();
+    const float size = m_room.lock()->get_size();
     const std::array<sf::Vector2f, 4> corners = {
         sf::Vector2f{pos.x - size/2, pos.y - size/2},
         sf::Vector2f{pos.x + size / 2, pos.y - size/2},
@@ -12,7 +16,7 @@ void Wall::prepare_for_drawing() {
         sf::Vector2f{pos.x + size/2, pos.y + size/2}
     };
 
-    switch(m_room.get_direction(this)) {
+    switch(m_room.lock()->get_direction(this)) {
         case Room::Direction::UP:
             m_line[0] = sf::Vertex{corners[0], config::GAME_COLOR_WALL};
             m_line[1] = sf::Vertex{corners[1], config::GAME_COLOR_WALL};

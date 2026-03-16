@@ -8,16 +8,18 @@ class Room;
 
 class Pass : public IRoomSide {
 public:
-    Pass(Room& room1, Room& room2) : m_room1(room1), m_room2(room2) {}
+    Pass(std::shared_ptr<Room> room1, std::shared_ptr<Room> room2)
+    : m_room1(room1), m_room2(room2) {}
+
     void enter(IEntity* entity) override {
-        if(entity->get_location() == &m_room1)
-            entity->set_location(&m_room2);
-        else if(entity->get_location() == &m_room2)
-            entity->set_location(&m_room1);
+        if(entity->get_location() == m_room1.lock().get())
+            entity->set_location(m_room2.lock().get());
+        else if(entity->get_location() == m_room2.lock().get())
+            entity->set_location(m_room1.lock().get());
     }
     void prepare_for_drawing() override {}
     void draw_into(sf::RenderWindow& window) override {}
 private:
-    Room& m_room1;
-    Room& m_room2;
+    std::weak_ptr<Room> m_room1;
+    std::weak_ptr<Room> m_room2;
 };

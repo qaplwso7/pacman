@@ -19,17 +19,17 @@ sf::Vector2f Room::get_position() const noexcept {
     return m_rectangle.getPosition();
 }
 
-void Room::set_side(Direction side, std::unique_ptr<IRoomSide>&& ptr_side) {
+void Room::set_side(Direction side, std::shared_ptr<IRoomSide> ptr_side) {
     if(side == INVALID)
         throw std::invalid_argument("Invalid side direction!");
     m_sides[side] = std::move(ptr_side);
 }
 
-IRoomSide * Room::get_side(Direction side) const noexcept {
-    return m_sides[side].get();
+std::shared_ptr<IRoomSide> Room::get_side(Direction side) const noexcept {
+    return m_sides[side];
 }
 
-Room::Direction Room::get_direction(IRoomSide *ptr_side) const noexcept {
+Room::Direction Room::get_direction(const IRoomSide* ptr_side) const noexcept {
     if(m_sides[RIGHT].get() == ptr_side) return RIGHT;
     if(m_sides[LEFT].get() == ptr_side) return LEFT;
     if(m_sides[DOWN].get() == ptr_side) return DOWN;
@@ -40,6 +40,5 @@ Room::Direction Room::get_direction(IRoomSide *ptr_side) const noexcept {
 void Room::draw_into(sf::RenderWindow &window) {
     window.draw(m_rectangle);
     for(auto& side : m_sides)
-        if(side)
-            side->draw_into(window);
+        if(side) side->draw_into(window);
 }
