@@ -1,6 +1,6 @@
 #include "Room.h"
 #include "IRoomSide.h"
-#include "../../utils/config/GameConfig.h"
+#include "../../Utils/config/GameConfig.h"
 
 Room::Room(float size) : m_rectangle({size, size}) {
     m_rectangle.setOrigin(m_rectangle.getSize() / 2.0f);

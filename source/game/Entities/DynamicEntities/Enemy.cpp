@@ -1,6 +1,8 @@
 #include "Enemy.h"
-#include "../maze/Room.h"
-#include "../../utils/config/GameConfig.h"
+#include "../../Maze/Room.h"
+#include "../../../Utils/config/GameConfig.h"
+#include "../IVisitor.h"
+#include "../../IGameEvent.h"
 
 Enemy::Enemy() {
     float radius = config::GAME_ENEMY_SIZE / 2.0f;
@@ -17,7 +19,10 @@ void Enemy::prepare_for_drawing() {
     m_circle.setPosition(m_ptr_room->get_position());
 }
 
-/// потом изменить
+std::unique_ptr<IGameEvent> Enemy::accept(IVisitor* ptr_visitor) {
+    return ptr_visitor->visit(this);
+}
+
 void Enemy::action() {
     if(!m_ptr_room)
         return;

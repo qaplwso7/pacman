@@ -2,7 +2,7 @@
 
 #include "GameContext/ContextManager.h"
 #include "GameContext/GameContext.h"
-#include "maze/Maze.h"
+#include "Maze/Maze.h"
 #include "../application/core/IState.h"
 #include "../application/IWindowKeeper.h"
 

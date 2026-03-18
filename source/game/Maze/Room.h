@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../user_interface/core/IDrawable.h"
+#include "../../UserInterface/core/IDrawable.h"
 #include <array>
 #include <memory>
 

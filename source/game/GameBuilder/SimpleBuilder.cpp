@@ -1,15 +1,13 @@
 #include "SimpleBuilder.h"
-#include "../maze/RoomSide/Wall.h"
-#include "../maze/RoomSide/Pass.h"
+#include "../Maze/RoomSide/Wall.h"
+#include "../Maze/RoomSide/Pass.h"
 #include <iostream>
 
 void SimpleBuilder::create_rooms() {
-    std::cout << "create_rooms()" << std::endl;
     size_t rows = static_cast<size_t>(m_height / m_room_size);
     size_t columns = static_cast<size_t>(m_width / m_room_size);
     float indent_x = (m_width - m_room_size * columns) / 2.0f;
     float indent_y = (m_height - m_room_size * rows) / 2.0f;
-    std::cout << "Room size: " << m_room_size << std::endl;
 
     m_rooms_grid.resize(rows);
     for (auto& row : m_rooms_grid) {

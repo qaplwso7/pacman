@@ -2,8 +2,8 @@
 
 #include <random>
 
-#include "IDynamicEntity.h"
-#include "IStaticEntity.h"
+#include "../IDynamicEntity.h"
+#include "../IStaticEntity.h"
 
 class IRoomSide;
 
@@ -14,6 +14,8 @@ public:
     void action() override;
     void draw_into(sf::RenderWindow &window) override;
     void prepare_for_drawing() override;
+    std::unique_ptr<IGameEvent> accept(IVisitor* ptr_visitor) override;
+
 
 private:
     sf::CircleShape m_circle;

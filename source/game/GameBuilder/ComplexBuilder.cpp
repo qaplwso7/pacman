@@ -1,6 +1,6 @@
 #include "ComplexBuilder.h"
-#include "../maze/RoomSide/Wall.h"
-#include "../maze/RoomSide/Pass.h"
+#include "../Maze/RoomSide/Wall.h"
+#include "../Maze/RoomSide/Pass.h"
 
 #include <iostream>
 

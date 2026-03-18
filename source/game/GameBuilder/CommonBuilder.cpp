@@ -5,8 +5,8 @@
 
 #include "../GameState.h"
 #include "../Entities/Pacman.h"
-#include "../Entities/Enemy.h"
-#include "../Entities/Food.h"
+#include "../Entities/DynamicEntities/Enemy.h"
+#include "../Entities/StaticEntities/Food.h"
 
 CommonBuilder::~CommonBuilder() {} /// не понятно зачем (но без этого не работает)
 

@@ -1,6 +1,6 @@
 #include "Button.h"
-#include "../../utils/graphics/MyFont.h"
-#include "../../utils/config/GameConfig.h"
+#include "../../Utils/graphics/MyFont.h"
+#include "../../Utils/config/GameConfig.h"
 
 void Button::set(const sf::Vector2f& position, const sf::Vector2f& button_size,
                  const std::string& text, const size_t& font_size, std::unique_ptr<ISelectCommand> ptr_command) {

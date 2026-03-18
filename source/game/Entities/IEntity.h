@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../IPreparable.h"
-#include "../maze/Room.h"
+#include "../Maze/Room.h"
 
 class IEntity : public IPreparable {
 public:

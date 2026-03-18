@@ -1,5 +1,5 @@
 #include "Wall.h"
-#include "../../../utils/config/GameConfig.h"
+#include "../../../Utils/config/GameConfig.h"
 #include "../Room.h"
 
 Wall::Wall(std::shared_ptr<Room> room) : m_room(room) {}

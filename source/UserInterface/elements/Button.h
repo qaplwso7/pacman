@@ -4,7 +4,7 @@
 
 #include "../core/IDrawable.h"
 #include "../core/ISelectCommand.h"
-#include "../../utils/graphics/MyFont.h"
+#include "../../Utils/graphics/MyFont.h"
 
 #include <string>
 #include <SFML/Graphics.hpp>

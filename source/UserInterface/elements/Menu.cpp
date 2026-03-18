@@ -3,8 +3,8 @@
 
 #include "../../game/GameBuilder/SimpleBuilder.h"
 #include "../../game/GameBuilder/ComplexBuilder.h"
-#include "../../user_interface/commands/ExitCommand.hpp"
-#include "../../user_interface/commands/GameCommand.h"
+#include "../../UserInterface/commands/ExitCommand.hpp"
+#include "../../UserInterface/commands/GameCommand.h"
 
 Menu::Menu(IStateManager &state_manager) : m_state_manager(state_manager) {
     const float window_size = static_cast<float>(config::SELECT_LEVEL_VIDEO_MODE.size.x);

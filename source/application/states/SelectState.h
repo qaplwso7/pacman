@@ -2,7 +2,7 @@
 
 #include "../core/IState.h"
 #include "../IWindowKeeper.h"
-#include "../../user_interface/elements/Menu.h"
+#include "../../UserInterface/elements/Menu.h"
 #include <memory>
 
 class SelectState : public IState, public IWindowKeeper {

@@ -1,7 +1,7 @@
 #include "GameState.h"
 
 #include <iostream>
-#include "../utils/config/GameConfig.h"
+#include "../Utils/config/GameConfig.h"
 #include "../application/states/ExitState.h"
 
 GameState::GameState(IStateManager& state_manager, const sf::VideoMode& video_mode, const std::string& window_title)
@@ -26,9 +26,14 @@ bool GameState::do_step() {
 }
 
 void GameState::event_handling() {
-    while (auto event = m_window.pollEvent()) {
-        if (event.value().is<sf::Event::Closed>()) {
+    while(auto event = m_window.pollEvent()) {
+        if(event.value().is<sf::Event::Closed>()) {
             m_window.close();
+        }
+        if (auto ptr_event = event->getIf<sf::Event::Resized>()) {
+            sf::View view = m_window.getView();
+            view.setSize(sf::Vector2f{ ptr_event->size });
+            m_window.setView(view);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 #include "../core/IDrawable.h"
 #include "Button.h"
-#include "../../utils/config/GameConfig.h"
+#include "../../Utils/config/GameConfig.h"
 
 #include <SFML/Graphics.hpp>
 #include <string>

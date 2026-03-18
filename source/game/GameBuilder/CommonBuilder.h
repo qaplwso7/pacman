@@ -5,7 +5,7 @@
 
 #include "IGameBuilder.h"
 #include "../GameContext/GameContext.h"
-#include "../../utils/config/GameConfig.h"
+#include "../../Utils/config/GameConfig.h"
 
 class IRoomSide;
 class IStateManager;

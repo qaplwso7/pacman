@@ -1,6 +1,6 @@
 #include "SelectState.h"
 
-#include "../../utils/config/GameConfig.h"
+#include "../../Utils/config/GameConfig.h"
 
 SelectState::SelectState(IStateManager &state_manager, const sf::VideoMode &video_mode, const std::string &window_title)
     : IState(state_manager),
