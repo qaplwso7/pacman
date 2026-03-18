@@ -2,8 +2,6 @@
 #include "../Maze/RoomSide/Wall.h"
 #include "../Maze/RoomSide/Pass.h"
 
-#include <iostream>
-
 void ComplexBuilder::create_rooms() {
     size_t columns = static_cast<size_t>(m_width / m_room_size);
     size_t rows = static_cast<size_t>(m_height / m_room_size);
@@ -28,7 +26,6 @@ void ComplexBuilder::create_rooms() {
             room->set_position(position);
             m_rooms.push_back(room);
             m_rooms_grid[i][j] = room;
-            std::cout << m_room_size << " " << m_room_size << std::endl;
         }
     }
 }

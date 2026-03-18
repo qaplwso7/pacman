@@ -24,6 +24,10 @@ public:
     void render() override;
 
 private:
+    void process_key_pressed(const sf::Event::KeyPressed* ptr_event);
+    void process_entities_interactions() const;
+
+private:
     std::unique_ptr<Maze> m_maze;
     std::unique_ptr<ContextManager> m_context_manager;
 };

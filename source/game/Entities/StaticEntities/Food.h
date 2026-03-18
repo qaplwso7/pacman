@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../IStaticEntity.h"
-#include "../IVisitor.h"
 #include <memory>
 
 class Food : public IStaticEntity {

@@ -5,7 +5,6 @@
 #include "../../Utils/config/GameConfig.h"
 
 #include <SFML/Graphics.hpp>
-#include <string>
 #include <array>
 
 class IStateManager;

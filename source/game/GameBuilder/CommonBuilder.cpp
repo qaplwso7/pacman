@@ -8,7 +8,7 @@
 #include "../Entities/DynamicEntities/Enemy.h"
 #include "../Entities/StaticEntities/Food.h"
 
-CommonBuilder::~CommonBuilder() {} /// не понятно зачем (но без этого не работает)
+CommonBuilder::~CommonBuilder() {}
 
 void CommonBuilder::create_context(float dynamic_objects_ratio) {
     std::vector<Room*> available_rooms;
@@ -52,9 +52,7 @@ void CommonBuilder::set_all_to_state() {
     m_game_state->set_maze(std::move(std::make_unique<Maze>(std::move(m_rooms))));
     m_game_state->set_context(std::move(std::make_unique<GameContext>(std::move(m_context))));
 }
-#include <iostream>
 
 std::unique_ptr<GameState> CommonBuilder::get_game() {
-    std::cout << "get_game" << std::endl;
     return std::move(m_game_state);
 }

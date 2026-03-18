@@ -1,5 +1,4 @@
 #include "DeleteStaticEntity.h"
-
 #include "../../GameContext/GameContext.h"
 
 DeleteStaticEntity::DeleteStaticEntity(IStaticEntity *ptr_entity)

@@ -1,6 +1,8 @@
 #include "SelectState.h"
 
 #include "../../Utils/config/GameConfig.h"
+#include "../core/IStateManager.h"
+#include "ExitState.h"
 
 SelectState::SelectState(IStateManager &state_manager, const sf::VideoMode &video_mode, const std::string &window_title)
     : IState(state_manager),
@@ -18,6 +20,7 @@ void SelectState::event_handling() {
     while(const std::optional event = m_window.pollEvent()) {
         if(event->is<sf::Event::Closed>()) {
             m_window.close();
+            m_state_manager.set_next_state(std::make_unique<ExitState>(m_state_manager));
         }
         if(auto ptr_event = event->getIf<sf::Event::Resized>()) {
             sf::View view = m_window.getView();
@@ -37,8 +40,7 @@ void SelectState::event_handling() {
     }
 }
 
-void SelectState::update() {
-}
+void SelectState::update() {}
 
 void SelectState::render() {
     m_window.clear(config::SELECT_LEVEL_BACKGROUND_COLOR);
