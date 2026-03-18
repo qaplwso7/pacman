@@ -8,11 +8,7 @@
 #include "../Entities/Enemy.h"
 #include "../Entities/Food.h"
 
-
-CommonBuilder::CommonBuilder(const float width, const float height, const float room_size):
-    m_width(width), m_height(height), m_room_size(room_size) {}
-
-CommonBuilder::~CommonBuilder() {} /// почему так ????
+CommonBuilder::~CommonBuilder() {} /// не понятно зачем (но без этого не работает)
 
 void CommonBuilder::create_context(float dynamic_objects_ratio) {
     std::vector<Room*> available_rooms;
@@ -32,7 +28,7 @@ void CommonBuilder::create_context(float dynamic_objects_ratio) {
     size_t total_enemies = static_cast<size_t>(total_remaining_rooms * dynamic_objects_ratio);
     if(total_remaining_rooms < total_enemies) total_enemies = total_remaining_rooms;
 
-    for(size_t i = 0; i < total_remaining_rooms; i++) {
+    for(size_t i = 0; i < total_enemies; i++) {
         auto enemy = std::make_unique<Enemy>();
         enemy->set_location(available_rooms.back());
         available_rooms.pop_back();
@@ -56,7 +52,9 @@ void CommonBuilder::set_all_to_state() {
     m_game_state->set_maze(std::move(std::make_unique<Maze>(std::move(m_rooms))));
     m_game_state->set_context(std::move(std::make_unique<GameContext>(std::move(m_context))));
 }
+#include <iostream>
 
 std::unique_ptr<GameState> CommonBuilder::get_game() {
-    return  std::move(m_game_state);
+    std::cout << "get_game" << std::endl;
+    return std::move(m_game_state);
 }

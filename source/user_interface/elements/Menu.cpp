@@ -1,60 +1,10 @@
 #include "Menu.h"
-#include "../../game/GameBuilder/GameBuilderDirector.h"
-#include "../../game/GameBuilder/SimpleBuilder.h"
 #include <memory>
-///#include "../../user_interface/commands/ExitCommand.hpp"
+
+#include "../../game/GameBuilder/SimpleBuilder.h"
+#include "../../game/GameBuilder/ComplexBuilder.h"
+#include "../../user_interface/commands/ExitCommand.hpp"
 #include "../../user_interface/commands/GameCommand.h"
-
-#include <iostream>
-/// доработать после написания cmd (7-8 пункты)
-
-/// заглушка
-namespace {
-    class ExitCommand : public ISelectCommand {
-    public:
-        explicit ExitCommand(IStateManager& manager) : m_manager(manager) {}
-        void execute() override {
-            std::cout << "Exit command executed (temporary)\n";
-            // TODO: set next state to ExitState
-            // m_manager.set_next_state(std::make_unique<ExitState>(m_manager));
-        }
-    private:
-        IStateManager& m_manager;
-    };
-
-    class EasyGameCommand : public ISelectCommand {
-    public:
-        explicit EasyGameCommand(IStateManager& manager) : m_manager(manager) {}
-        void execute() override {
-            std::cout << "Easy game command executed (temporary)\n";
-            // TODO: create GameState with SimpleBuilder and enemy ratio 0.0
-        }
-    private:
-        IStateManager& m_manager;
-    };
-
-    class MediumGameCommand : public ISelectCommand {
-    public:
-        explicit MediumGameCommand(IStateManager& manager) : m_manager(manager) {}
-        void execute() override {
-            std::cout << "Medium game command executed (temporary)\n";
-            // TODO: create GameState with SimpleBuilder and enemy ratio 0.03
-        }
-    private:
-        IStateManager& m_manager;
-    };
-
-    class HardGameCommand : public ISelectCommand {
-    public:
-        explicit HardGameCommand(IStateManager& manager) : m_manager(manager) {}
-        void execute() override {
-            std::cout << "Hard game command executed (temporary)\n";
-            // TODO: create GameState with ComplexBuilder and enemy ratio 0.07
-        }
-    private:
-        IStateManager& m_manager;
-    };
-}
 
 Menu::Menu(IStateManager &state_manager) : m_state_manager(state_manager) {
     const float window_size = static_cast<float>(config::SELECT_LEVEL_VIDEO_MODE.size.x);
@@ -73,14 +23,20 @@ Menu::Menu(IStateManager &state_manager) : m_state_manager(state_manager) {
     };
 
     auto cmd_exit = std::make_unique<ExitCommand>(m_state_manager);
-    auto cmd_easy = std::make_unique<EasyGameCommand>(m_state_manager);
-    auto cmd_medium = std::make_unique<MediumGameCommand>(m_state_manager);
-    auto cmd_hard = std::make_unique<HardGameCommand>(m_state_manager);
+    auto builder_easy = std::make_unique<GameBuilderDirector>(std::make_unique<SimpleBuilder>(),
+        config::GAME_VIDEO_MODE, config::EASY_GAME_TITLE, config::EASY_GAME_ENEMY_RATIO);
+    auto cmd_easy = std::make_unique<GameCommand>(m_state_manager, std::move(builder_easy));
+    auto builder_medium = std::make_unique<GameBuilderDirector>(std::make_unique<SimpleBuilder>(),
+        config::GAME_VIDEO_MODE, config::MEDIUM_GAME_TITLE, config::MEDIUM_GAME_ENEMY_RATIO);
+    auto cmd_medium = std::make_unique<GameCommand>(m_state_manager, std::move(builder_medium));
+    auto builder_hard = std::make_unique<GameBuilderDirector>(std::make_unique<ComplexBuilder>(),
+        config::GAME_VIDEO_MODE, config::HARD_GAME_TITLE, config::HARD_GAME_ENEMY_RATIO);
+    auto cmd_hard = std::make_unique<GameCommand>(m_state_manager, std::move(builder_hard));
 
-    m_buttons[0].set({indent_left, pos_y[0]}, config::BUTTON_SIZE, text[0], config::BUTTON_FONT_SIZE, std::move(cmd_exit));
-    m_buttons[1].set({indent_left, pos_y[1]}, config::BUTTON_SIZE, text[1], config::BUTTON_FONT_SIZE, std::move(cmd_easy));
-    m_buttons[2].set({indent_left, pos_y[2]}, config::BUTTON_SIZE, text[2], config::BUTTON_FONT_SIZE, std::move(cmd_medium));
-    m_buttons[3].set({indent_left, pos_y[3]}, config::BUTTON_SIZE, text[3], config::BUTTON_FONT_SIZE, std::move(cmd_hard));
+    m_buttons[0].set({indent_left, pos_y[0]}, config::BUTTON_SIZE, text[0], config::BUTTON_FONT_SIZE, std::move(cmd_easy));
+    m_buttons[1].set({indent_left, pos_y[1]}, config::BUTTON_SIZE, text[1], config::BUTTON_FONT_SIZE, std::move(cmd_medium));
+    m_buttons[2].set({indent_left, pos_y[2]}, config::BUTTON_SIZE, text[2], config::BUTTON_FONT_SIZE, std::move(cmd_hard));
+    m_buttons[3].set({indent_left, pos_y[3]}, config::BUTTON_SIZE, text[3], config::BUTTON_FONT_SIZE, std::move(cmd_exit));
 }
 
 void Menu::process_mouse(sf::Vector2f position, bool is_pressed) {

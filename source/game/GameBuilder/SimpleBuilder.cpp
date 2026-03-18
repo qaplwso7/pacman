@@ -1,26 +1,31 @@
 #include "SimpleBuilder.h"
 #include "../maze/RoomSide/Wall.h"
 #include "../maze/RoomSide/Pass.h"
+#include <iostream>
 
 void SimpleBuilder::create_rooms() {
+    std::cout << "create_rooms()" << std::endl;
     size_t rows = static_cast<size_t>(m_height / m_room_size);
     size_t columns = static_cast<size_t>(m_width / m_room_size);
     float indent_x = (m_width - m_room_size * columns) / 2.0f;
     float indent_y = (m_height - m_room_size * rows) / 2.0f;
+    std::cout << "Room size: " << m_room_size << std::endl;
 
     m_rooms_grid.resize(rows);
-    for(auto& room : m_rooms_grid)
-        m_rooms_grid.resize(columns);
+    for (auto& row : m_rooms_grid) {
+        row.resize(columns, nullptr);
+    }
 
-    for(size_t i = 0; i < rows; i++) {
-        for(size_t j = 0; j < columns; j++) {
+    for (size_t i = 0; i < rows; ++i) {
+        for (size_t j = 0; j < columns; ++j) {
             auto room = std::make_shared<Room>(m_room_size);
             sf::Vector2f position = {
                 indent_x + (j + 0.5f) * m_room_size,
                 indent_y + (i + 0.5f) * m_room_size
             };
             room->set_position(position);
-            m_rooms.emplace_back(room);
+            std::cout << columns << " " << rows << std::endl;
+            m_rooms.push_back(room);
             m_rooms_grid[i][j] = room;
         }
     }
@@ -60,3 +65,4 @@ void SimpleBuilder::set_rooms_sides() {
         }
     }
 }
+

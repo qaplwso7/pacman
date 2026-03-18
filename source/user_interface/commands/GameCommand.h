@@ -9,7 +9,7 @@ class GameBuilderDirector;
 class GameCommand : public ChangeStateCommand {
 public:
     GameCommand(IStateManager& state_manager, std::unique_ptr<GameBuilderDirector> ptr_director);
-
+    ~GameCommand() = default;
     void execute() override;
 
 private:

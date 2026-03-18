@@ -14,9 +14,7 @@ class Room;
 
 class CommonBuilder : public IGameBuilder {
 public:
-    CommonBuilder(const float width, const float height, const float room_size);
     ~CommonBuilder() override;
-
     void create_context(float dynamic_objects_ratio) override;
     void create_state(IStateManager& state_manager, sf::VideoMode mode, std::string window_title) override;
     void set_all_to_state() override;
