@@ -1,8 +1,8 @@
 #include "Menu.h"
 #include <memory>
 
-#include "../../game/GameBuilder/SimpleBuilder.h"
-#include "../../game/GameBuilder/ComplexBuilder.h"
+#include "../../Game/GameBuilder/SimpleBuilder.h"
+#include "../../Game/GameBuilder/ComplexBuilder.h"
 #include "../../UserInterface/commands/ExitCommand.hpp"
 #include "../../UserInterface/commands/GameCommand.h"
 

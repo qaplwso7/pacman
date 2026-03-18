@@ -22,7 +22,6 @@ void SimpleBuilder::create_rooms() {
                 indent_y + (i + 0.5f) * m_room_size
             };
             room->set_position(position);
-            std::cout << columns << " " << rows << std::endl;
             m_rooms.push_back(room);
             m_rooms_grid[i][j] = room;
         }

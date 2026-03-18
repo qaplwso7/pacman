@@ -5,7 +5,7 @@
 
 #include "IState.h"
 #include "IStateManager.h"
-#include "../states/SelectState.h"
+#include "../States/SelectState.h"
 
 class Application : public IStateManager {
 public:

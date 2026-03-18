@@ -1,6 +1,6 @@
 #pragma once
 #include "../ChangeStateCommand.h"
-#include "../../game/GameBuilder/GameBuilderDirector.h"
+#include "../../Game/GameBuilder/GameBuilderDirector.h"
 #include <memory>
 
 class IStateManager;

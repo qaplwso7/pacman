@@ -36,19 +36,37 @@ namespace config {
     const sf::Keyboard::Key KEY_UP = sf::Keyboard::Key::W;
     const sf::Keyboard::Key KEY_DOWN = sf::Keyboard::Key::S;
     // Цвета:
-    const sf::Color BUTTON_COLOR_TEXT{ 0, 0, 0 };
-    const sf::Color BUTTON_COLOR_FILL{ 180, 180, 180 };
-    const sf::Color BUTTON_COLOR_SELECTION{ 255, 180, 180 };
-    const sf::Color BUTTON_COLOR_FRAME{ 0, 0, 0 };
-    const sf::Color SELECT_LEVEL_BACKGROUND_COLOR{ 230,230,230 };
-    const sf::Color GAME_COLOR_BACKGROUND_INGAME{ 230,230,230 };
-    const sf::Color GAME_COLOR_BACKGROUND_WIN{ 0, 255, 0 };
-    const sf::Color GAME_COLOR_BACKGROUND_LOST{ 255, 0, 0 };
-    const sf::Color GAME_COLOR_PACMAN{ 250, 150, 0 };
-    const sf::Color GAME_COLOR_ROOM{ 255, 255, 255 };
-    const sf::Color GAME_COLOR_WALL{ 0, 0, 0 };
-    const sf::Color GAME_FOOD_COLOR{ 0, 200, 100 };
-    const sf::Color GAME_ENEMY_COLOR{ 255, 50, 0 };
+    // const sf::Color BUTTON_COLOR_TEXT{ 0, 0, 0 };
+    // const sf::Color BUTTON_COLOR_FILL{ 180, 180, 180 };
+    // const sf::Color BUTTON_COLOR_SELECTION{ 255, 180, 180 };
+    // const sf::Color BUTTON_COLOR_FRAME{ 0, 0, 0 };
+    // const sf::Color SELECT_LEVEL_BACKGROUND_COLOR{ 230,230,230 };
+    // const sf::Color GAME_COLOR_BACKGROUND_INGAME{ 230,230,230 };
+    // const sf::Color GAME_COLOR_BACKGROUND_WIN{ 0, 255, 0 };
+    // const sf::Color GAME_COLOR_BACKGROUND_LOST{ 255, 0, 0 };
+    // const sf::Color GAME_COLOR_PACMAN{ 250, 150, 0 };
+    // const sf::Color GAME_COLOR_ROOM{ 255, 255, 255 };
+    // const sf::Color GAME_COLOR_WALL{ 0, 0, 0 };
+    // const sf::Color GAME_FOOD_COLOR{ 0, 200, 100 };
+    // const sf::Color GAME_ENEMY_COLOR{ 255, 50, 0 };
+    // Меню
+    const sf::Color BUTTON_COLOR_TEXT{ 0, 255, 255 };        // неоново-голубой
+    const sf::Color BUTTON_COLOR_FILL{ 20, 20, 40 };        // тёмно-синий
+    const sf::Color BUTTON_COLOR_SELECTION{ 255, 0, 255 };  // неоново-розовый
+    const sf::Color BUTTON_COLOR_FRAME{ 0, 255, 255 };      // неоново-голубой
+    const sf::Color SELECT_LEVEL_BACKGROUND_COLOR{ 10, 10, 20 }; // очень тёмный фон
+
+    // Игровой фон (в зависимости от состояния)
+    const sf::Color GAME_COLOR_BACKGROUND_INGAME{ 5, 5, 15 };    // почти чёрный с синевой
+    const sf::Color GAME_COLOR_BACKGROUND_WIN{ 0, 255, 0 };      // ярко-зелёный (победа)
+    const sf::Color GAME_COLOR_BACKGROUND_LOST{ 255, 0, 0 };     // ярко-красный (поражение)
+
+    // Игровые объекты
+    const sf::Color GAME_COLOR_PACMAN{ 255, 255, 0 };            // жёлтый (неоновый)
+    const sf::Color GAME_COLOR_ROOM{ 30, 30, 50 };               // тёмно-синий для комнат
+    const sf::Color GAME_COLOR_WALL{ 0, 255, 255 };              // неоново-голубой для стен
+    const sf::Color GAME_FOOD_COLOR{ 255, 105, 180 };            // неоново-розовый (еда)
+    const sf::Color GAME_ENEMY_COLOR{ 255, 0, 0 };               // неоново-красный (враги)
     // Позиционирование
     const float BUTTON_SPACING_MULTIPLIER = 1.2f;  // коэффициент расстояния между кнопками
     const float BUTTON_VERTICAL_SPACING = BUTTON_SIZE.y * BUTTON_SPACING_MULTIPLIER;  // расстояние между кнопками

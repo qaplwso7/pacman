@@ -28,13 +28,19 @@ void SelectState::event_handling() {
             m_window.setView(view);
         }
         else if(auto* mouseMoved = event->getIf<sf::Event::MouseMoved>()) {
-            sf::Vector2i mousePos(mouseMoved->position.x, mouseMoved->position.y);
-            m_menu->process_mouse(static_cast<sf::Vector2f>(mousePos), false);
+            sf::Vector2i pixelPos = {mouseMoved->position.x, mouseMoved->position.y};
+            sf::Vector2f worldPos = m_window.mapPixelToCoords(pixelPos);
+            m_menu->process_mouse(worldPos, sf::Mouse::isButtonPressed(sf::Mouse::Button::Left));
+            //sf::Vector2i mousePos(mouseMoved->position.x, mouseMoved->position.y);
+            //m_menu->process_mouse(static_cast<sf::Vector2f>(mousePos), false);
         }
         else if(auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>()) {
             if (mousePressed->button == sf::Mouse::Button::Left) {
-                sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
-                m_menu->process_mouse(static_cast<sf::Vector2f>(mousePos), true);
+                sf::Vector2i pixelPos = {mousePressed->position.x, mousePressed->position.y};
+                sf::Vector2f worldPos = m_window.mapPixelToCoords(pixelPos);
+                m_menu->process_mouse(worldPos, true);
+                // sf::Vector2i mousePos(mousePressed->position.x, mousePressed->position.y);
+                // m_menu->process_mouse(static_cast<sf::Vector2f>(mousePos), true);
             }
         }
     }
@@ -47,4 +53,3 @@ void SelectState::render() {
     m_menu->draw_into(m_window);
     m_window.display();
 }
-

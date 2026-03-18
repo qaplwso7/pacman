@@ -1,12 +1,9 @@
 #include "GameState.h"
 
-#include <iostream>
-
 #include "../application/states/SelectState.h"
 #include "../application/core/IStateManager.h"
 #include "IGameEvent.h"
 #include "../Utils/config/GameConfig.h"
-#include "../application/states/ExitState.h"
 
 GameState::GameState(IStateManager& state_manager, const sf::VideoMode& video_mode, const std::string& window_title)
     : IState(state_manager), IWindowKeeper(video_mode, window_title) {}

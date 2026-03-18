@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../ChangeStateCommand.h"
-#include "../../application/core/IStateManager.h"
-#include "../../application/states/ExitState.h"
+#include "../../Application/core/IStateManager.h"
+#include "../../Application/States/ExitState.h"
 
 #include <memory>
 

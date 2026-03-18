@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../Maze/IRoomSide.h"
 #include "IEntity.h"
 #include "IVisitor.h"
 

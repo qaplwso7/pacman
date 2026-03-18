@@ -1,5 +1,5 @@
 #include "GameCommand.h"
-#include "../../application/core/IStateManager.h"
+#include "../../Application/core/IStateManager.h"
 #include <iostream>
 
 GameCommand::GameCommand(IStateManager& state_manager, std::unique_ptr<GameBuilderDirector> ptr_director)
