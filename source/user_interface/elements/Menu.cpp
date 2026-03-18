@@ -1,5 +1,7 @@
 #include "Menu.h"
-
+#include "../../game/GameBuilder/GameBuilderDirector.h"
+#include "../../game/GameBuilder/SimpleBuilder.h"
+#include <memory>
 ///#include "../../user_interface/commands/ExitCommand.hpp"
 #include "../../user_interface/commands/GameCommand.h"
 

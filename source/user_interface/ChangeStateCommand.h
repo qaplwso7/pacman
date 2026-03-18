@@ -1,16 +1,19 @@
 #pragma once
 
-#include "../application/core/IStateManager.h"
 #include "core/ISelectCommand.h"
+
+#include<memory>
 
 class IStateManager;
 
-class ChangeStateCommand : ISelectCommand {
+class ChangeStateCommand : public ISelectCommand {
 public:
-    ChangeStateCommand(IStateManager& manager) : m_state_manager(manager) {}
+    ChangeStateCommand(IStateManager& state_manager): m_state_manager(state_manager) {}
+
 protected:
     IStateManager& m_state_manager;
 };
+
 
 
 

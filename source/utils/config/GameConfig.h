@@ -27,6 +27,8 @@ namespace config {
     const float ROOM_SIZE = 50;
     const float GAME_ENEMY_SIZE = ROOM_SIZE * 0.7;
     const float GAME_FOOD_SIZE = ROOM_SIZE * 0.2;
+    const float GAME_WIDTH = 800.0f;
+    const float GAME_HEIGHT = 600.0f;
     // Пакмэн:
     const float GAME_PACMAN_SIZE = ROOM_SIZE * 0.8;
     const sf::Keyboard::Key KEY_LEFT = sf::Keyboard::Key::A;

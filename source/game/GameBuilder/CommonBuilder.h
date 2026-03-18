@@ -1,30 +1,33 @@
 #pragma once
 
 #include <vector>
-#include <memory>
 #include <string>
-#include <SFML/Graphics.hpp>
 
 #include "IGameBuilder.h"
+#include "../GameContext/GameContext.h"
+#include "../../utils/config/GameConfig.h"
 
 class IRoomSide;
-class StateManager;
+class IStateManager;
 class GameState;
 class Room;
-class GameContext;
 
 class CommonBuilder : public IGameBuilder {
 public:
+    CommonBuilder(const float width, const float height, const float room_size);
+    ~CommonBuilder() override;
+
     void create_context(float dynamic_objects_ratio) override;
-    void create_state(StateManager& state_manager, sf::VideoMode mode, std::string window_title);
-    void set_all_to_state();
-    std::unique_ptr<GameState> get_game();
+    void create_state(IStateManager& state_manager, sf::VideoMode mode, std::string window_title) override;
+    void set_all_to_state() override;
+    std::unique_ptr<GameState> get_game() override;
 
 protected:
-    float m_width = 0.0f;
-    float m_height = 0.0f;
-    float m_room_size = 0.0f;
-;
+    float m_width = config::GAME_VIDEO_MODE.size.x;
+    float m_height = config::GAME_VIDEO_MODE.size.y;
+    float m_room_size = config::ROOM_SIZE;
+    std::vector<std::vector<std::shared_ptr<Room>>> m_rooms_grid;
+    std::vector<std::shared_ptr<Room>> m_rooms;
     GameContext m_context;
     std::unique_ptr<GameState> m_game_state;
 };

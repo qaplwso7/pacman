@@ -1,9 +1,17 @@
 #pragma once
 #include "../ChangeStateCommand.h"
-#include "../../game/GameState.h"
+#include "../../game/GameBuilder/GameBuilderDirector.h"
+#include <memory>
 
-class GameCommand : ChangeStateCommand {
+class IStateManager;
+class GameBuilderDirector;
+
+class GameCommand : public ChangeStateCommand {
 public:
-    GameCommand(IStateManager& state_manager) : ChangeStateCommand(state_manager) {};
+    GameCommand(IStateManager& state_manager, std::unique_ptr<GameBuilderDirector> ptr_director);
+
     void execute() override;
+
+private:
+    std::unique_ptr<GameBuilderDirector> m_ptr_director;
 };
